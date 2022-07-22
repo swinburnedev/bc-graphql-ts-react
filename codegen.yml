@@ -1,5 +1,8 @@
 overwrite: true
-schema: "https://commerce.qa.pbr.so/graphql"
+schema:
+ - ${REACT_APP_SCHEMA_PATH}:
+     headers:
+       Authorization: Bearer ${REACT_APP_SCHEMA_TOKEN}
 documents: "./src/components/**/*.{ts,tsx}"
 generates:
   src/generated/graphql.tsx:
@@ -7,3 +10,5 @@ generates:
       - "typescript"
       - "typescript-operations"
       - "typescript-react-apollo"
+    config:
+      withHooks: true

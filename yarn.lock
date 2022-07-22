@@ -3563,7 +3563,7 @@ check-types@^11.1.1:
   resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/check-types/-/check-types-11.1.2.tgz#86a7c12bf5539f6324eb0e70ca8896c0e38f3e2f"
   integrity sha1-hqfBK/VTn2Mk6w5wyoiWwOOPPi8=
 
-chokidar@^3.4.2, chokidar@^3.5.2, chokidar@^3.5.3:
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.4.2, chokidar@^3.5.2, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha1-HPN8hwe5Mr0a8a4iwEMuKs0ZA70=
@@ -4421,7 +4421,7 @@ dotenv@^10.0.0:
   resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha1-PUInuPuV+BCWzdK2ZlP7LHCFuoE=
 
-dotenv@^16.0.0:
+dotenv@^16.0.0, dotenv@^16.0.1:
   version "16.0.1"
   resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/dotenv/-/dotenv-16.0.1.tgz#8f8f9d94876c35dac989876a5d3a82a267fdce1d"
   integrity sha1-j4+dlIdsNdrJiYdqXTqComf9zh0=
@@ -5692,6 +5692,11 @@ immer@^9.0.7:
   version "9.0.15"
   resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/immer/-/immer-9.0.15.tgz#0b9169e5b1d22137aba7d43f8a81a495dd1b62dc"
   integrity sha1-C5Fp5bHSITerp9Q/ioGkld0bYtw=
+
+immutable@^4.0.0:
+  version "4.1.0"
+  resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/immutable/-/immutable-4.1.0.tgz#f795787f0db780183307b9eb2091fcac1f6fafef"
+  integrity sha1-95V4fw23gBgzB7nrIJH8rB9vr+8=
 
 immutable@~3.7.6:
   version "3.7.6"
@@ -8882,6 +8887,15 @@ sass-loader@^12.3.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
+sass@^1.53.0:
+  version "1.53.0"
+  resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/sass/-/sass-1.53.0.tgz#eab73a7baac045cc57ddc1d1ff501ad2659952eb"
+  integrity sha1-6rc6e6rARcxX3cHR/1Aa0mWZUus=
+  dependencies:
+    chokidar ">=3.0.0 <4.0.0"
+    immutable "^4.0.0"
+    source-map-js ">=0.6.2 <2.0.0"
+
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
@@ -9153,7 +9167,7 @@ source-list-map@^2.0.0, source-list-map@^2.0.1:
   resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
   integrity sha1-OZO9hzv8SEecyp6jpUeDXHwVSzQ=
 
-source-map-js@^1.0.1, source-map-js@^1.0.2:
+"source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.1, source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://pkgs.dev.azure.com/purplebricks/_packaging/purplebricks-npm/npm/registry/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha1-rbw2HZxi3zgBJefxYfccgm8eSQw=
