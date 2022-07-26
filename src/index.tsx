@@ -5,8 +5,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// TODO get token from local storage - localStorage.getItem('token')
-const token: string = process.env.REACT_APP_SCHEMA_TOKEN || '';
+// TODO get token from local storage
+const token: string = localStorage.getItem('token') || process.env.REACT_APP_SCHEMA_TOKEN || '';
 const client = new ApolloClient({
   uri: process.env.REACT_APP_SCHEMA_PATH,
   cache: new InMemoryCache(),
