@@ -1,21 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// TODO get token from local storage
+
 const token: string = localStorage.getItem('token') || process.env.REACT_APP_SCHEMA_TOKEN || '';
-const client = new ApolloClient({
+const link = new HttpLink({
   uri: process.env.REACT_APP_SCHEMA_PATH,
-  cache: new InMemoryCache(),
+  credentials: 'include',
   headers: {
     authorization: `Bearer ${token}`,
-    origin: 'https://developer.bigcommerce.com'
-  }
+    'content-type': 'application/json'
+  },
+  fetchOptions: {
+    mode: 'cors',
+    method: 'POST'
+  },
 });
 
+const client = new ApolloClient({
+  link: link,
+  cache: new InMemoryCache(),
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
