@@ -7,7 +7,6 @@ export const QUERY_PRODUCT_LIST = gql`
                 edges {
                     node {
                         entityId,
-                        id,
                         name
                     }
                 }

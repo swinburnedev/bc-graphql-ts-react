@@ -5,7 +5,7 @@ import Product from './components/Product';
 import ProductList from './components/ProductList';
 
 function App() {
-  const [id, setId] = React.useState<number>(123);
+  const [id, setId] = React.useState<number>(117);
   const handleIdChange = React.useCallback((newId: number) => {
     setId(newId);
   }, []);
@@ -16,10 +16,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <div className="App-wrapper">
-        <div className='App-half'>
+        <div className="App-half">
           <ProductList handleIdChange={handleIdChange} />
         </div>
-        <div className='App-half'>
+        <div className="App-half">
           <Product id={id} />
         </div>
       </div>

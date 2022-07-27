@@ -3204,16 +3204,16 @@ export type ProductByIdQueryVariables = Exact<{
 }>;
 
 
-export type ProductByIdQuery = { __typename?: 'Query', site: { __typename?: 'Site', product?: { __typename?: 'Product', id: string, entityId: number, name: string, plainTextDescription: string, defaultImage?: { __typename?: 'Image', url320wide: string, url640wide: string, url960wide: string, url1280wide: string, altText?: string } | null, images: { __typename?: 'ImageConnection', edges?: Array<{ __typename?: 'ImageEdge', node: { __typename?: 'Image', url320wide: string, url640wide: string, url960wide: string, url1280wide: string, altText?: string } } | null> | null }, reviewSummary: { __typename?: 'Reviews', summationOfRatings: number, numberOfReviews: number }, prices?: { __typename?: 'Prices', price: { __typename?: 'Money', value: any, currencyCode: string }, priceRange: { __typename?: 'MoneyRange', min: { __typename?: 'Money', value: any, currencyCode: string }, max: { __typename?: 'Money', value: any, currencyCode: string } }, salePrice?: { __typename?: 'Money', value: any, currencyCode: string } | null, retailPrice?: { __typename?: 'Money', value: any, currencyCode: string } | null, saved?: { __typename?: 'Money', value: any, currencyCode: string } | null, bulkPricing: Array<{ __typename?: 'BulkPricingFixedPriceDiscount', price: any, minimumQuantity: number, maximumQuantity?: number | null } | { __typename?: 'BulkPricingPercentageDiscount', percentOff: any, minimumQuantity: number, maximumQuantity?: number | null } | { __typename?: 'BulkPricingRelativePriceDiscount', priceAdjustment: any, minimumQuantity: number, maximumQuantity?: number | null }> } | null, brand?: { __typename?: 'Brand', name: string } | null } | null } };
+export type ProductByIdQuery = { __typename?: 'Query', site: { __typename?: 'Site', product?: { __typename?: 'Product', id: string, entityId: number, name: string, plainTextDescription: string, defaultImage?: { __typename?: 'Image', altText: string, url320wide: string, url640wide: string, url960wide: string, url1280wide: string } | null, images: { __typename?: 'ImageConnection', edges?: Array<{ __typename?: 'ImageEdge', node: { __typename?: 'Image', altText: string, url320wide: string, url640wide: string, url960wide: string, url1280wide: string } } | null> | null }, reviewSummary: { __typename?: 'Reviews', summationOfRatings: number, numberOfReviews: number }, prices?: { __typename?: 'Prices', price: { __typename?: 'Money', value: any, currencyCode: string }, priceRange: { __typename?: 'MoneyRange', min: { __typename?: 'Money', value: any, currencyCode: string }, max: { __typename?: 'Money', value: any, currencyCode: string } }, salePrice?: { __typename?: 'Money', value: any, currencyCode: string } | null, retailPrice?: { __typename?: 'Money', value: any, currencyCode: string } | null, saved?: { __typename?: 'Money', value: any, currencyCode: string } | null, bulkPricing: Array<{ __typename?: 'BulkPricingFixedPriceDiscount', price: any, minimumQuantity: number, maximumQuantity?: number | null } | { __typename?: 'BulkPricingPercentageDiscount', percentOff: any, minimumQuantity: number, maximumQuantity?: number | null } | { __typename?: 'BulkPricingRelativePriceDiscount', priceAdjustment: any, minimumQuantity: number, maximumQuantity?: number | null }> } | null, brand?: { __typename?: 'Brand', name: string } | null } | null } };
 
-export type ImageFieldsFragment = { __typename?: 'Image', url320wide: string, url640wide: string, url960wide: string, url1280wide: string, altText?: string };
+export type ImageFieldsFragment = { __typename?: 'Image', altText: string, url320wide: string, url640wide: string, url960wide: string, url1280wide: string };
 
 export type MoneyFieldsFragment = { __typename?: 'Money', value: any, currencyCode: string };
 
 export type ProductListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProductListQuery = { __typename?: 'Query', site: { __typename?: 'Site', products: { __typename?: 'ProductConnection', edges?: Array<{ __typename?: 'ProductEdge', node: { __typename?: 'Product', entityId: number, id: string, name: string } } | null> | null } } };
+export type ProductListQuery = { __typename?: 'Query', site: { __typename?: 'Site', products: { __typename?: 'ProductConnection', edges?: Array<{ __typename?: 'ProductEdge', node: { __typename?: 'Product', entityId: number, name: string } } | null> | null } } };
 
 export const ImageFieldsFragmentDoc = gql`
     fragment ImageFields on Image {
@@ -3330,7 +3330,6 @@ export const ProductListDocument = gql`
       edges {
         node {
           entityId
-          id
           name
         }
       }
