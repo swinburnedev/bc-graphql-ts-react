@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useProductListQuery } from '../../generated/graphql';
-import ProductList from './ProductList';
+import ProductList, { OwnProps } from './ProductList';
 
-const ProductListContainer = () => {
+const ProductListContainer: React.FC<OwnProps> = (props) => {
     const { data, error, loading } = useProductListQuery();
   
     if (loading) {
@@ -13,7 +13,7 @@ const ProductListContainer = () => {
       return <div>ERROR</div>;
     }
   
-    return <ProductList data={data} />;
+    return <ProductList data={data} {...props} />;
   };
 
 export default ProductListContainer;

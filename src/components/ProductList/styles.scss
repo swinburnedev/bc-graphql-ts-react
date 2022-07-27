@@ -1,11 +1,15 @@
 .ProductList {
-    height: 100vh;
     overflow: hidden auto;
     background-color: #ececec;
-    width: 300px;
     padding-left: 20px;
     padding-right: 20px;
   
+    &__title {
+        margin: 10px auto;
+        font-size: 1.5rem;;
+        padding: 0;
+    }
+
     &__list {
         list-style: none;
         margin: 0;
@@ -13,9 +17,10 @@
     }
     
     &__item {
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         border-top: 1px solid #919191;
         cursor: pointer;
+        font-size: 1.25rem;;
     }
 }
