@@ -23,6 +23,7 @@ const Product: React.FC<Props> = ({ data }) => {
             <h1 className={`${className}__title`}>
                 {product.name}
             </h1>
+            <div>ID: {product.entityId}</div>
             <p className={`${className}__description`}>{product.plainTextDescription}</p>
             <p>{formatLocalizedPrice(product.prices?.price)}</p>
             {!!product.images && !!product.images.edges && (
@@ -33,7 +34,7 @@ const Product: React.FC<Props> = ({ data }) => {
                         src={image.node.url1280wide}
                         className={`${className}__image`}
                         key={image.node.url1280wide}
-                        alt="TODO"
+                        alt={image.node.altText}
                     />
                     ) : null,
                 )}

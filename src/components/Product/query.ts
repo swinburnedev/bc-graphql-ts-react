@@ -71,6 +71,7 @@ query productById(
    url640wide: url(width: 640)
    url960wide: url(width: 960)
    url1280wide: url(width: 1280)
+   altText
  }
  
  fragment MoneyFields on Money {
