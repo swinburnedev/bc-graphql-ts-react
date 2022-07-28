@@ -18,6 +18,8 @@ const Product: React.FC<Props> = ({ data }) => {
         return new Intl.NumberFormat(navigator.language, {style: 'currency', currency: price?.currencyCode}).format(price?.value);
     }
 
+    const addToCartURLFormat = `${data.site.settings?.url.vanityUrl}/cart.php?action=add&product_id=`
+
     return (
         <div className={className}>
             <h1 className={`${className}__title`}>
@@ -40,6 +42,8 @@ const Product: React.FC<Props> = ({ data }) => {
                 )}
                 </div>
             )}
+            <a href={`${addToCartURLFormat}${product.entityId}`} className={`${className}__btn`}>Add to cart</a>
+            {/* <a href={`${addToCartURLFormat}${product.entityId}`} className={`${className}__btn`}>Remove others cart</a> */}
         </div>
     );
 };

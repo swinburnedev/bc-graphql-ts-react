@@ -1,9 +1,11 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_PRODUCT_LIST = gql`
-    query productList {
+    query productList (
+        $first: Int!
+    ) {
         site {
-            products {
+            products(first: $first) {
                 edges {
                     node {
                         entityId,

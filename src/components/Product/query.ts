@@ -62,6 +62,11 @@ query productById(
        brand {
          name
        }
+     },
+     settings {
+      url {
+        vanityUrl
+      }
      }
    }
  }
