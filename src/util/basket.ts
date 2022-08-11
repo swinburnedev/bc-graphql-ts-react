@@ -1,27 +1,75 @@
-/**
- * TODO
- * !! Need to use SKUs as entity / id will vary per env
- * if product is within collection,
- *  then do necessary add / rmeove of other collection items
- * else
- *  add to basket
- * */
-export const addToBasket = (entityId: number) => {
-    // {{base_url}}/api/storefront/cart
+import { getConflictItems } from './conflict';
+
+const options: RequestInit = {
+    method: 'POST',
+    mode: 'cors',
+    headers: new Headers({
+        'Content-Type': 'application/json',
+    }),
 };
 
-export const getBasket = () => {
-    fetch(`${process.env.REACT_APP_STORE_API}/api/storefront/cart`, {
-        // mode: 'no-cors'
-    }).then(res => {
-        console.log('get basket json:', res);
-        return res.json();
-    });
+export const addToBasket = async (entityId: number, sku: string) => {
+    console.log('entityId:', entityId, 'sku:', sku);
+    const conflicts = await getConflictItems(sku);
+    console.log(conflicts);
+
+    // TODO - support multiple conflicts or assume only ever 1?
+    if (Array.isArray(conflicts) && conflicts.length === 1) {
+        // remove conflict from basket
+        const removed = await removeBasketItem(conflicts[0]);
+        console.log('removed:', removed);
+    }
+    // add to basket
+    const basket = await addBasketItem(entityId);
+    console.log('add:', basket);
+}
+
+export const addBasketItem = async (entityId: number) => {
+    const data: any = {
+        line_items: [
+            {
+                quantity: 1,
+                product_id: entityId,
+            },
+        ],
+    };
+
+    const response = await fetch(`${process.env.REACT_APP_STORE_API}/api/storefront/cart/items`, { ...options, body: JSON.stringify(data) })
+    if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+    return await response.json();
+};
+
+export const removeBasketItem = async (entityId: number) => {
+    const data: any = {
+        line_items: [
+            {
+                quantity: 1,
+                product_id: entityId,
+            },
+        ],
+    };
+    const response = await fetch(`${process.env.REACT_APP_STORE_API}/api/storefront/cart/items/${entityId}`,
+    {   ...options,
+        body: JSON.stringify(data),
+        method: 'delete'
+    })
+    if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+    return await response.json();
+};
+
+export const getBasket = async () => {
+    const response = await fetch(`${process.env.REACT_APP_STORE_API}/api/storefront/cart`);
+    if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+    return await response.json();
 };
 
 export const createBasket = (entityId: number) => {
-    // TODO basket type
-    console.log('createBasket:', entityId);
     const data: any = {
         line_items: [
             {
@@ -31,19 +79,8 @@ export const createBasket = (entityId: number) => {
         ],
         channel_id: 1,
     };
-    const options: RequestInit = {
-        method: 'POST',
-        mode: 'cors',
-        headers: new Headers({
-            'Content-Type': 'application/json',
-        }),
-        body: JSON.stringify(data),
-    };
-    fetch(`${process.env.REACT_APP_STORE_API}/api/storefront/cart`, options)
-        .then(res => {
-            console.log('basket res:', res);
-            return res;
-        })
+
+    fetch(`${process.env.REACT_APP_STORE_API}/api/storefront/cart`, { ...options, body: JSON.stringify(data) })
         .then(res => {
             console.log('basket json:', res.json());
             return res.json();

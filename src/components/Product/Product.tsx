@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Money, ProductByIdQuery } from '../../generated/graphql';
-import { createBasket, getBasket } from '../../util';
+import { addToBasket } from '../../util';
 import './styles.scss';
 
 interface Props {
@@ -27,7 +27,8 @@ const Product: React.FC<Props> = ({ data }) => {
     return (
         <div className={className}>
             <h1 className={`${className}__title`}>{product.name}</h1>
-            <div>ID: {product.entityId}</div>
+            <div>EntityID: {product.entityId}</div>
+            <div>Sku: {product.sku}</div>
             <p className={`${className}__description`}>
                 {product.plainTextDescription}
             </p>
@@ -49,8 +50,7 @@ const Product: React.FC<Props> = ({ data }) => {
             <button
                 className={`${className}__btn`}
                 onClick={(event: React.MouseEvent<HTMLElement>) => {
-                    createBasket(product.entityId);
-                    // getBasket();
+                    addToBasket(product.entityId, product.sku);
                 }}
             >
                 Add to cart
