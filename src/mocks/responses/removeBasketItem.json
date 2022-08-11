@@ -1,0 +1,33 @@
+[
+    {
+        "id": "aff60147-845e-4670-a017-70a3a7cb8992",
+        "customerId": 0,
+        "email": "",
+        "currency": {
+            "name": "British Pounds",
+            "code": "GBP",
+            "symbol": "£",
+            "decimalPlaces": 2
+        },
+        "isTaxIncluded": true,
+        "baseAmount": 0,
+        "discountAmount": 0,
+        "cartAmount": 0,
+        "coupons": [],
+        "discounts": [
+            {
+                "id": "bd00982d-400e-445a-8194-84fbe19641b0",
+                "discountedAmount": 0
+            }
+        ],
+        "lineItems": {
+            "physicalItems": [],
+            "digitalItems": [],
+            "giftCertificates": [],
+            "customItems": []
+        },
+        "createdTime": "2022-08-11T07:46:01+00:00",
+        "updatedTime": "2022-08-11T07:46:01+00:00",
+        "locale": "en"
+    }
+]

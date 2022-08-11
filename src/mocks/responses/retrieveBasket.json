@@ -1,0 +1,58 @@
+[
+    {
+        "id": "aff60147-845e-4670-a017-70a3a7cb8992",
+        "customerId": 0,
+        "email": "",
+        "currency": {
+            "name": "British Pounds",
+            "code": "GBP",
+            "symbol": "£",
+            "decimalPlaces": 2
+        },
+        "isTaxIncluded": true,
+        "baseAmount": 149,
+        "discountAmount": 0,
+        "cartAmount": 149,
+        "coupons": [],
+        "discounts": [
+            {
+                "id": "bd00982d-400e-445a-8194-84fbe19641b0",
+                "discountedAmount": 0
+            }
+        ],
+        "lineItems": {
+            "physicalItems": [],
+            "digitalItems": [
+                {
+                    "id": "bd00982d-400e-445a-8194-84fbe19641b0",
+                    "parentId": null,
+                    "variantId": 101,
+                    "productId": 136,
+                    "sku": "39",
+                    "name": "Rightmove - Featured Property",
+                    "url": "https://commerce.qa.pbr.so/rightmove-featured-property/",
+                    "quantity": 1,
+                    "brand": "",
+                    "isTaxable": true,
+                    "imageUrl": "https://cdn11.bigcommerce.com/r-cf8dc1a36e37ca22115036b22a6b2976a6384be1/themes/ClassicNext/images/ProductDefault.gif",
+                    "discounts": [],
+                    "discountAmount": 0,
+                    "couponAmount": 0,
+                    "originalPrice": 149,
+                    "listPrice": 149,
+                    "salePrice": 149,
+                    "extendedListPrice": 149,
+                    "extendedSalePrice": 149,
+                    "isShippingRequired": false,
+                    "type": "digital",
+                    "isMutable": true
+                }
+            ],
+            "giftCertificates": [],
+            "customItems": []
+        },
+        "createdTime": "2022-08-11T07:46:01+00:00",
+        "updatedTime": "2022-08-11T07:46:01+00:00",
+        "locale": "en"
+    }
+]

@@ -1,0 +1,56 @@
+{
+    "baseAmount": 149,
+    "cartAmount": 149,
+    "coupons": [],
+    "createdTime": "2022-08-10T15:32:53+00:00",
+    "currency": {
+        "code": "GBP",
+        "decimalPlaces": 2,
+        "name": "British Pounds",
+        "symbol": "£"
+    },
+    "customerId": 0,
+    "discountAmount": 0,
+    "discounts": [
+        {
+            "discountedAmount": 0,
+            "id": "5f3299b5-6638-42d0-b948-5faf692e98b6"
+        }
+    ],
+    "email": "",
+    "id": "fd4215df-85a8-4721-91a0-4ad924439e17",
+    "isTaxIncluded": true,
+    "lineItems": {
+        "customItems": [],
+        "digitalItems": [
+            {
+                "brand": "",
+                "couponAmount": 0,
+                "discountAmount": 0,
+                "discounts": [],
+                "extendedListPrice": 149,
+                "extendedSalePrice": 149,
+                "id": "5f3299b5-6638-42d0-b948-5faf692e98b6",
+                "imageUrl": "https://cdn11.bigcommerce.com/r-cf8dc1a36e37ca22115036b22a6b2976a6384be1/themes/ClassicNext/images/ProductDefault.gif",
+                "isMutable": true,
+                "isShippingRequired": false,
+                "isTaxable": true,
+                "listPrice": 149,
+                "name": "Rightmove - Featured Property",
+                "originalPrice": 149,
+                "parentId": null,
+                "productId": 136,
+                "quantity": 1,
+                "salePrice": 149,
+                "sku": "39",
+                "type": "digital",
+                "url": "https://commerce.qa.pbr.so/rightmove-featured-property/",
+                "variantId": 101
+            }
+        ],
+        "giftCertificates": [],
+        "physicalItems": []
+    },
+    "locale": "en",
+    "updatedTime": "2022-08-10T15:32:53+00:00"
+}
