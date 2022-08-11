@@ -8,6 +8,7 @@ query productById(
      product(entityId: $productId) {
        id
        entityId
+       sku
        name
        plainTextDescription
        defaultImage {

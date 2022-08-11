@@ -20,7 +20,9 @@ export type Scalars = {
 
 /** Add wishlist items input object */
 export type AddWishlistItemsInput = {
+  /** The wishlist id */
   entityId: Scalars['Int'];
+  /** The new wishlist items */
   items: Array<WishlistItemInput>;
 };
 
@@ -85,6 +87,7 @@ export type Brand = Node & {
   pageTitle: Scalars['String'];
   /** Path for the brand page. */
   path: Scalars['String'];
+  /** List of products associated with the brand. */
   products: ProductConnection;
   /** Search keywords for the brand. */
   searchKeywords: Array<Scalars['String']>;
@@ -298,7 +301,10 @@ export type Category = Node & {
   products: ProductConnection;
   /** Category SEO details. */
   seo: SeoDetails;
-  /** @deprecated Alpha version. Do not use in production. */
+  /**
+   * Category shop by price money ranges.
+   * @deprecated Alpha version. Do not use in production.
+   */
   shopByPriceRanges: ShopByPriceConnection;
 };
 
@@ -514,7 +520,9 @@ export type ContactField = {
 /** The page content. */
 export type Content = {
   __typename?: 'Content';
+  /** The rendered regions by specific page. */
   renderedRegionsByPageType: RenderedRegionsByPageType;
+  /** The rendered regions by specific page and id. */
   renderedRegionsByPageTypeAndEntityId: RenderedRegionsByPageType;
 };
 
@@ -533,8 +541,11 @@ export type ContentRenderedRegionsByPageTypeAndEntityIdArgs = {
 
 /** Create wishlist input object */
 export type CreateWishlistInput = {
+  /** A wishlist visibility mode */
   isPublic: Scalars['Boolean'];
+  /** A wishlist items */
   items?: InputMaybe<Array<WishlistItemInput>>;
+  /** A wishlist name */
   name: Scalars['String'];
 };
 
@@ -660,6 +671,7 @@ export type Customer = {
   storeCredit: Array<Money>;
   /** The tax exempt category of the customer. */
   taxExemptCategory: Scalars['String'];
+  /** Customer wishlists. */
   wishlists: WishlistConnection;
 };
 
@@ -726,7 +738,9 @@ export type DateTimeExtended = {
 
 /** Delete wishlist items input object */
 export type DeleteWishlistItemsInput = {
+  /** The wishlist id */
   entityId: Scalars['Int'];
+  /** The wishlist item ids */
   itemEntityIds: Array<Scalars['Int']>;
 };
 
@@ -769,6 +783,7 @@ export type Distance = {
 export type DistanceFilter = {
   /** Signed decimal degrees without compass direction */
   latitude: Scalars['Float'];
+  /** Length unit */
   lengthUnit: LengthUnit;
   /** Signed decimal degrees without compass direction */
   longitude: Scalars['Float'];
@@ -1119,7 +1134,9 @@ export type MultipleChoiceOptionValue = CatalogProductOptionValue & {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  /** Customer login */
   login: LoginResult;
+  /** Customer logout */
   logout: LogoutResult;
   /** The wishlist mutations. */
   wishlist: WishlistMutations;
@@ -1203,8 +1220,11 @@ export type OptionValueEdge = {
   node: ProductOptionValue;
 };
 
+/** A variant option value id input object */
 export type OptionValueId = {
+  /** A variant option id filter */
   optionEntityId: Scalars['Int'];
+  /** A variant value id filter. */
   valueEntityId: Scalars['Int'];
 };
 
@@ -1305,6 +1325,7 @@ export type PriceSearchFilter = SearchProductFilter & {
   selected?: Maybe<PriceSearchFilterItem>;
 };
 
+/** Search by price range. At least a minPrice or maxPrice must be supplied. */
 export type PriceSearchFilterInput = {
   maxPrice?: InputMaybe<Scalars['Float']>;
   minPrice?: InputMaybe<Scalars['Float']>;
@@ -1589,6 +1610,7 @@ export type ProductAttributeSearchFilterAttributesArgs = {
   last?: InputMaybe<Scalars['Int']>;
 };
 
+/** Filter by the attributes of products such as Product Options and Product Custom Fields. This filter will do nothing unless your store has the Product Filtering feature available on your plan and enabled. If it is supplied when your store does not have the feature enabled, it will be silently ignored. */
 export type ProductAttributeSearchFilterInput = {
   attribute: Scalars['String'];
   values: Array<Scalars['String']>;
@@ -1783,15 +1805,18 @@ export type ProductPreOrder = ProductAvailability & {
   willBeReleasedAt?: Maybe<DateTimeExtended>;
 };
 
+/** Product reviews filters. */
 export type ProductReviewsFiltersInput = {
   rating?: InputMaybe<ProductReviewsRatingFilterInput>;
 };
 
+/** Product reviews filter by rating. */
 export type ProductReviewsRatingFilterInput = {
   maxRating?: InputMaybe<Scalars['Int']>;
   minRating?: InputMaybe<Scalars['Int']>;
 };
 
+/** Product reviews sorting. */
 export enum ProductReviewsSortInput {
   HighestRating = 'HIGHEST_RATING',
   LowestRating = 'LOWEST_RATING',
@@ -1815,6 +1840,7 @@ export type PublicWishlist = {
   __typename?: 'PublicWishlist';
   /** The wishlist id. */
   entityId: Scalars['Int'];
+  /** A list of the wishlist items */
   items: WishlistItemConnection;
   /** The wishlist name. */
   name: Scalars['String'];
@@ -1867,6 +1893,7 @@ export type RatingSearchFilterRatingsArgs = {
   last?: InputMaybe<Scalars['Int']>;
 };
 
+/** Filter by rating. At least a minRating or maxRating must be supplied. This filter will do nothing unless your store has the Product Filtering feature available on your plan and enabled. If it is supplied when your store does not have the feature enabled, it will be silently ignored. */
 export type RatingSearchFilterInput = {
   maxRating?: InputMaybe<Scalars['Float']>;
   minRating?: InputMaybe<Scalars['Float']>;
@@ -1930,6 +1957,7 @@ export type RelatedProductsEdge = {
 /** The rendered regions by specific page. */
 export type RenderedRegionsByPageType = {
   __typename?: 'RenderedRegionsByPageType';
+  /** List of regions */
   regions: Array<Region>;
 };
 
@@ -2022,6 +2050,7 @@ export type SearchProductFilterEdge = {
   node: SearchProductFilter;
 };
 
+/** Container for catalog search results, which may contain both products as well as a list of search filters for further refinement. */
 export type SearchProducts = {
   __typename?: 'SearchProducts';
   /** Available product filters. */
@@ -2031,6 +2060,7 @@ export type SearchProducts = {
 };
 
 
+/** Container for catalog search results, which may contain both products as well as a list of search filters for further refinement. */
 export type SearchProductsFiltersArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -2039,11 +2069,13 @@ export type SearchProductsFiltersArgs = {
 };
 
 
+/** Container for catalog search results, which may contain both products as well as a list of search filters for further refinement. */
 export type SearchProductsProductsArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
 };
 
+/** Object containing available search filters for use when querying Products. */
 export type SearchProductsFiltersInput = {
   /** Filter by products belonging to any of the specified Brands. */
   brandEntityIds?: InputMaybe<Array<Scalars['Int']>>;
@@ -2069,6 +2101,7 @@ export type SearchProductsFiltersInput = {
   searchTerm?: InputMaybe<Scalars['String']>;
 };
 
+/** Sort to use for the product results. Relevance is the default for textual search terms, and “Featured” is the default for category page contexts without a search term. */
 export enum SearchProductsSortInput {
   AToZ = 'A_TO_Z',
   BestReviewed = 'BEST_REVIEWED',
@@ -2125,6 +2158,7 @@ export type Settings = {
   storeHash: Scalars['String'];
   /** The name of the store. */
   storeName: Scalars['String'];
+  /** The tax display settings object */
   tax?: Maybe<TaxDisplaySettings>;
   /** Store urls. */
   url: UrlField;
@@ -2164,7 +2198,9 @@ export type Site = {
   brands: BrandConnection;
   /** Retrieve a category object by the id. */
   category?: Maybe<Category>;
+  /** A tree of categories. */
   categoryTree: Array<CategoryTreeItem>;
+  /** The page content. */
   content: Content;
   /** Store Currencies. */
   currencies: CurrencyConnection;
@@ -2178,6 +2214,7 @@ export type Site = {
   product?: Maybe<Product>;
   /** Details of the products. */
   products: ProductConnection;
+  /** Public Wishlist */
   publicWishlist?: Maybe<PublicWishlist>;
   /** Route for a node */
   route: Route;
@@ -2367,6 +2404,7 @@ export type SwatchOptionValueImageUrlArgs = {
   width: Scalars['Int'];
 };
 
+/** The tax display settings object */
 export type TaxDisplaySettings = {
   __typename?: 'TaxDisplaySettings';
   /** Tax display setting for Product Details Page. */
@@ -2403,7 +2441,9 @@ export type TextFieldOption = CatalogProductOption & {
 
 /** Update wishlist input object */
 export type UpdateWishlistInput = {
+  /** Wishlist data to update */
   data: WishlistUpdateDataInput;
+  /** The wishlist id */
   entityId: Scalars['Int'];
 };
 
@@ -2441,6 +2481,7 @@ export type Variant = Node & {
   id: Scalars['ID'];
   /** Variant inventory */
   inventory?: Maybe<VariantInventory>;
+  /** Whether the product can be purchased */
   isPurchasable: Scalars['Boolean'];
   /** Metafield data related to a variant. */
   metafields: MetafieldConnection;
@@ -2547,6 +2588,7 @@ export type Wishlist = {
   entityId: Scalars['Int'];
   /** Is the wishlist public? */
   isPublic: Scalars['Boolean'];
+  /** A list of the wishlist items */
   items: WishlistItemConnection;
   /** The wishlist name. */
   name: Scalars['String'];
@@ -2580,16 +2622,20 @@ export type WishlistEdge = {
 
 /** Wishlist filters input object */
 export type WishlistFiltersInput = {
+  /** A wishlist ids filter. */
   entityIds?: InputMaybe<Array<Scalars['Int']>>;
 };
 
-/** WishlistItem */
+/** The wishlist item */
 export type WishlistItem = {
   __typename?: 'WishlistItem';
   /** Wishlist item id. */
   entityId: Scalars['Int'];
+  /** A product included in the wishlist. */
   product: Product;
+  /** An id of the product from the wishlist. */
   productEntityId: Scalars['Int'];
+  /** An id of the specific product variant from the wishlist. */
   variantEntityId?: Maybe<Scalars['Int']>;
 };
 
@@ -2619,10 +2665,15 @@ export type WishlistItemInput = {
 
 export type WishlistMutations = {
   __typename?: 'WishlistMutations';
+  /** Add wishlist items */
   addWishlistItems?: Maybe<AddWishlistItemsResult>;
+  /** Create wishlist */
   createWishlist?: Maybe<CreateWishlistResult>;
+  /** Delete wishlist items */
   deleteWishlistItems?: Maybe<DeleteWishlistItemsResult>;
+  /** Delete wishlist */
   deleteWishlists?: Maybe<DeleteWishlistResult>;
+  /** Update wishlist */
   updateWishlist?: Maybe<UpdateWishlistResult>;
 };
 
@@ -2653,7 +2704,9 @@ export type WishlistMutationsUpdateWishlistArgs = {
 
 /** Wishlist data to update */
 export type WishlistUpdateDataInput = {
+  /** A new wishlist visibility mode */
   isPublic?: InputMaybe<Scalars['Boolean']>;
+  /** A new wishlist name */
   name?: InputMaybe<Scalars['String']>;
 };
 
@@ -3204,7 +3257,7 @@ export type ProductByIdQueryVariables = Exact<{
 }>;
 
 
-export type ProductByIdQuery = { __typename?: 'Query', site: { __typename?: 'Site', product?: { __typename?: 'Product', id: string, entityId: number, name: string, plainTextDescription: string, defaultImage?: { __typename?: 'Image', altText: string, url320wide: string, url640wide: string, url960wide: string, url1280wide: string } | null, images: { __typename?: 'ImageConnection', edges?: Array<{ __typename?: 'ImageEdge', node: { __typename?: 'Image', altText: string, url320wide: string, url640wide: string, url960wide: string, url1280wide: string } } | null> | null }, reviewSummary: { __typename?: 'Reviews', summationOfRatings: number, numberOfReviews: number }, prices?: { __typename?: 'Prices', price: { __typename?: 'Money', value: any, currencyCode: string }, priceRange: { __typename?: 'MoneyRange', min: { __typename?: 'Money', value: any, currencyCode: string }, max: { __typename?: 'Money', value: any, currencyCode: string } }, salePrice?: { __typename?: 'Money', value: any, currencyCode: string } | null, retailPrice?: { __typename?: 'Money', value: any, currencyCode: string } | null, saved?: { __typename?: 'Money', value: any, currencyCode: string } | null, bulkPricing: Array<{ __typename?: 'BulkPricingFixedPriceDiscount', price: any, minimumQuantity: number, maximumQuantity?: number | null } | { __typename?: 'BulkPricingPercentageDiscount', percentOff: any, minimumQuantity: number, maximumQuantity?: number | null } | { __typename?: 'BulkPricingRelativePriceDiscount', priceAdjustment: any, minimumQuantity: number, maximumQuantity?: number | null }> } | null, brand?: { __typename?: 'Brand', name: string } | null } | null, settings?: { __typename?: 'Settings', url: { __typename?: 'UrlField', vanityUrl: string } } | null } };
+export type ProductByIdQuery = { __typename?: 'Query', site: { __typename?: 'Site', product?: { __typename?: 'Product', id: string, entityId: number, sku: string, name: string, plainTextDescription: string, defaultImage?: { __typename?: 'Image', altText: string, url320wide: string, url640wide: string, url960wide: string, url1280wide: string } | null, images: { __typename?: 'ImageConnection', edges?: Array<{ __typename?: 'ImageEdge', node: { __typename?: 'Image', altText: string, url320wide: string, url640wide: string, url960wide: string, url1280wide: string } } | null> | null }, reviewSummary: { __typename?: 'Reviews', summationOfRatings: number, numberOfReviews: number }, prices?: { __typename?: 'Prices', price: { __typename?: 'Money', value: any, currencyCode: string }, priceRange: { __typename?: 'MoneyRange', min: { __typename?: 'Money', value: any, currencyCode: string }, max: { __typename?: 'Money', value: any, currencyCode: string } }, salePrice?: { __typename?: 'Money', value: any, currencyCode: string } | null, retailPrice?: { __typename?: 'Money', value: any, currencyCode: string } | null, saved?: { __typename?: 'Money', value: any, currencyCode: string } | null, bulkPricing: Array<{ __typename?: 'BulkPricingFixedPriceDiscount', price: any, minimumQuantity: number, maximumQuantity?: number | null } | { __typename?: 'BulkPricingPercentageDiscount', percentOff: any, minimumQuantity: number, maximumQuantity?: number | null } | { __typename?: 'BulkPricingRelativePriceDiscount', priceAdjustment: any, minimumQuantity: number, maximumQuantity?: number | null }> } | null, brand?: { __typename?: 'Brand', name: string } | null } | null, settings?: { __typename?: 'Settings', url: { __typename?: 'UrlField', vanityUrl: string } } | null } };
 
 export type ImageFieldsFragment = { __typename?: 'Image', altText: string, url320wide: string, url640wide: string, url960wide: string, url1280wide: string };
 
@@ -3238,6 +3291,7 @@ export const ProductByIdDocument = gql`
     product(entityId: $productId) {
       id
       entityId
+      sku
       name
       plainTextDescription
       defaultImage {
