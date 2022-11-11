@@ -9,10 +9,19 @@ export const QUERY_PRODUCT_LIST = gql`
                 edges {
                     node {
                         entityId,
-                        name
+                        name,
+                        prices {
+                            price {
+                                ...MoneyFields
+                            }
+                        }
                     }
                 }
             }
         }
+    }
+    fragment MoneyFields on Money {
+        value
+        currencyCode
     }
 `;
